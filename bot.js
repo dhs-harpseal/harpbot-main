@@ -172,6 +172,21 @@ client.on('message', function(msg) {
     				if (err) console.error(err);
    				 });
   				break;
+  			case "silence":
+  				if (!msg.member.roles.has("338277493565816834")) {
+  					msg.channel.send("kids try to use admin power??? demerit!!!");
+  					return;
+  				}
+  				if (!args[1]) {
+  					msg.channel.send("specify some kid pls");
+  					return;
+  				}
+  				var name = args[1].slice(3, 21);
+  				var time = args[2]*60000;
+  				trm.members.get(name).remove("CONNECT");
+  				setTimeout(trm.members.get(name).add("CONNECT"),time);
+  				break;
+
   		}
   	}
 });
