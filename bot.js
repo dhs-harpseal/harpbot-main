@@ -183,10 +183,10 @@ client.on('message', function(msg) {
   				}
   				var name = args[1].slice(3, 21);
   				var time = args[2]*60000;
-  				trm.members.get(name).remove("CONNECT");
+  				trm.members.get(name).permissions.remove("CONNECT");
   				console.log("Permission removed for " + time + " milliseconds");
   				setTimeout(function() {
-  					trm.members.get(name).add("CONNECT");
+  					trm.members.get(name).permissions.add("CONNECT");
   					console.log("Permission readded");
   				}, time);
   				break;
